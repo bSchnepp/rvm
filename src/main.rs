@@ -1,6 +1,8 @@
 #![feature(decl_macro)]
 #[macro_use] extern crate rocket;
 
+use  rocket_contrib::serve::StaticFiles;
+
 #[get("/hello")]
 fn index() -> String
 {
@@ -10,6 +12,11 @@ fn index() -> String
 
 fn main() 
 {
-	rocket::ignite().mount("/", routes![index]).launch();
-	println!("Hello, world!");
+	let res = concat!(env!("CARGO_MANIFEST_DIR"), "/res");
+	println!("{}", res);
+	rocket::ignite()
+		.mount("/", routes![index])
+		.mount("/", StaticFiles::from(res))
+		.launch();
+	
 }

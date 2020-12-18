@@ -1,0 +1,26 @@
+{
+	"name": "rvm",
+	"version": "0.1.0",
+	"main": "js/index.js",
+	"scripts": {
+		"start": "cargo run",
+		"build": "cargo build && npm install && node_modules/webpack/bin/webpack.js"
+	},
+	"author": "Brian Schnepp <bschneppdev@gmail.com>",
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.2.2",
+		"babel-preset-react": "^6.24.1",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-scripts": "^4.0.1",
+		"webpack": "^4.0.0",
+		"webpack-cli": "^4.2.0"
+	},
+	"babel": {
+		"presets": [
+			"@babel/env",
+			"@babel/react"
+		]
+	}
+}
